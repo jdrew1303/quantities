@@ -860,7 +860,7 @@ var _=require('lodash');
 
         if(inAllUnits){
           units=_.uniq(all_units[this._units].join('|').toLowerCase().split('|'));
-          
+
           var all=[{
                     val:this.scalar,
                     units:units,
@@ -888,11 +888,13 @@ var _=require('lodash');
             var val=this._conversionCache[key]
 
             if(inAllUnits){
-                val={
-                  val:val.scalar,
-                  units:_.uniq(all_units[key].join('|').toLowerCase().split('|')),
-                  str: val.scalar+' ('+all_units[key].join('|')+')'
-                }
+              units=_.uniq(all_units[key].join('|').toLowerCase().split('|'));
+
+              val={
+                val:val.scalar,
+                units:units,
+                str: val.scalar+' ('+units.join('|')+')'
+              }
             }
 
             // console.log(this._conversionCache[key],val)
