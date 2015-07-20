@@ -835,10 +835,7 @@ var _=require('lodash');
        var units=[];
 
        all_units[this._units]=(this.numerator.length)?UNITS[ this.numerator.pop() ][0]:unit;
-       
-       console.log(this)
-       console.log(all_units)
-
+      
         //loop thru all the available UNITs
         for(var key in UNITS){
 
