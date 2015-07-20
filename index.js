@@ -859,7 +859,10 @@ var _=require('lodash');
         }
 
         if(inAllUnits){
-            var all=[this.scalar+' ('+all_units[this._units].join('|')+')'];
+            var all=[{
+                      val:this.scalar,
+                      units:all_units[this._units]
+                    }];
         }
 
         else{
@@ -882,7 +885,10 @@ var _=require('lodash');
             var val=this._conversionCache[key]
 
             if(inAllUnits){
-                val=val.scalar+' ('+all_units[key].join('|')+')'
+                val={
+                  val:val.scalar,
+                  units:all_units[key]
+                }
             }
 
             // console.log(this._conversionCache[key],val)
