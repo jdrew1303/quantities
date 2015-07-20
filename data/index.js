@@ -239,6 +239,7 @@ var _=require('lodash');
 
    for(var i in UNITS){
       units=_.union(units, 
+        //only letters for units
         _.filter(UNITS[i][0].join('|').toLowerCase().split('|'),function(val){
           return /^[a-z]+$/.test(val)
         })
