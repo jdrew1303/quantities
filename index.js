@@ -837,7 +837,7 @@ var _=require('lodash');
        var signature=KINDS[this.signature.toString()];
        var all_units={}
        var unit=this.numerator.pop();
-       // var unit=
+       var units=[];
 
        all_units[this._units]=UNITS[ this.numerator.pop() ][0];
 
@@ -859,11 +859,13 @@ var _=require('lodash');
         }
 
         if(inAllUnits){
-            var all=[{
-                      val:this.scalar,
-                      units:_.uniq(all_units[this._units].join('|').toLowerCase().split('|')),
-                      str: this.scalar+' ('+all_units[this._units].join('|')+')'
-                    }];
+          units=_.uniq(all_units[this._units].join('|').toLowerCase().split('|'));
+          
+          var all=[{
+                    val:this.scalar,
+                    units:units,
+                    str: this.scalar+' ('+units.join('|')+')'
+                  }];
         }
 
         else{
