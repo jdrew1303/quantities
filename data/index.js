@@ -238,10 +238,14 @@ var _=require('lodash');
    var units=[];
 
    for(var i in UNITS){
-      units=_.union(units,UNITS[i][0].join('|').toLowerCase().split('|'));    
+      units=_.union(units, 
+        _.filter(UNITS[i][0].join('|').toLowerCase().split('|'),function(val){
+          return /^[a-z]+$/.test(val)
+        })
+      );    
    }
 
-  
+    
     return units;
   };
 
