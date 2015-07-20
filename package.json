@@ -1,5 +1,5 @@
 {
-  "name": "ja-quantities-all",
+  "name": "js-quantities-all",
   "version": "0.0.1",
   "description": "An Edit of: JS-quantities is originally a JavaScript port of Kevin Olbrich's library Ruby Units (http://github.com/olbrich/ruby-units).",
   "main": "index.js",
