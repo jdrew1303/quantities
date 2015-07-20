@@ -1,0 +1,28 @@
+{
+  "name": "ja-quantities-all",
+  "version": "0.0.1",
+  "description": "An Edit of: JS-quantities is originally a JavaScript port of Kevin Olbrich's library Ruby Units (http://github.com/olbrich/ruby-units).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mugendi/quantities.git"
+  },
+  "keywords": [
+    "convert",
+    "conversion",
+    "units",
+    "math"
+  ],
+  "author": "Anthony Mugendi (ngurumugz@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mugendi/quantities/issues"
+  },
+  "homepage": "https://github.com/mugendi/quantities",
+  "dependencies": {
+    "lodash": "^3.10.0"
+  }
+}
