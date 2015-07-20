@@ -887,7 +887,7 @@ var _=require('lodash');
             if(inAllUnits){
                 val={
                   val:val.scalar,
-                  units:all_units[key]
+                  units:_.uniq(all_units[key].join('|').toLowerCase().split('|'))
                 }
             }
 
