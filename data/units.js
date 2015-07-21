@@ -203,8 +203,11 @@ var UNITS = {
     "<rpm>"   :[["rpm"], 2.0*Math.PI / 60.0, "angular_velocity", ["<radian>"], ["<second>"]],
 
     /* memory */
-    "<byte>"  :[["B","byte"], 1.0, "memory", ["<byte>"]],
-    "<bit>"  :[["b","bit"], 0.125, "memory", ["<byte>"]],
+    "<gigabyte>"  :[["GB","gigabyte","gigabytes"], 1000000000, "memory", ["<byte>"]],
+    "<megabyte>"  :[["MB","megabyte","megabytes"], 1000000, "memory", ["<byte>"]],
+    "<kilobyte>"  :[["KB","kilobyte","kilobytes"], 1000, "memory", ["<byte>"]],
+    "<byte>"  :[["B","byte"], 1.0 , "memory", ["<byte>"]],
+    "<bit>"  :[["b","bit"], 0.125 , "memory", ["<byte>"]],
 
     /* currency */
     "<dollar>":[["USD","dollar"], 1.0, "currency", ["<dollar>"]],

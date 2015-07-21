@@ -13,6 +13,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 var _=require('lodash');
 
+require('sugar');
+
 (function (root, factory) {
     "use strict";
 
@@ -36,6 +38,7 @@ var _=require('lodash');
   var BASE_UNITS = ["<meter>","<kilogram>","<second>","<mole>", "<farad>", "<ampere>","<radian>","<kelvin>","<temp-K>","<byte>","<dollar>","<candela>","<each>","<steradian>","<decibel>"];
   var UNITY = "<1>";
   var UNITY_ARRAY= [UNITY];
+  var NUMERATED_UNITS={}
   var SIGN = "[+-]";
   var INTEGER = "\\d+";
   var SIGNED_INTEGER = SIGN + "?" + INTEGER;
@@ -233,26 +236,18 @@ var _=require('lodash');
   };
   
   Qty.getUnits = function(qty) {
-    console.log()
 
-   // this.initValue = initValue;
-   // updateBaseScalar.call(this);
-   var units=[];
+     var units=[]; 
 
-    var signature=KINDS[baseUnitCache[Object.keys(baseUnitCache)[0]].signature];
+     for(var numerator in UNITS){
+        UNITS[numerator][0].forEach(function(unit){
+          NUMERATED_UNITS[unit]=numerator;
+        });
+     }
 
-   for(var i in UNITS){
-
-    if(signature==UNITS[i][2]){
-        units.push(i.replace(/[\<\>]/g,''));
-        // var converted= Qty.to('ml')
-       // console.log(JSON.stringify(converted)) 
-    }
-    
-   }
-
-    
-    // return UNITS;
+     
+      
+     return _.keys(NUMERATED_UNITS);
   };
 
   /**
@@ -836,10 +831,11 @@ var _=require('lodash');
 
        var signature=KINDS[this.signature.toString()];
        var all_units={}
-       var unit=this.numerator.pop();
+       var unit=this.initValue.replace(/[^a-z]+/ig,'');
        var units=[];
+       var numerator=this.numerator.pop();
 
-       all_units[this._units]=UNITS[ this.numerator.pop() ][0];
+       all_units[this._units]=UNITS[numerator][0];
 
         //loop thru all the available UNITs
         for(var key in UNITS){
@@ -859,12 +855,12 @@ var _=require('lodash');
         }
 
         if(inAllUnits){
-          units=_.uniq(all_units[this._units].join('|').toLowerCase().split('|'));
+          units=_.uniq(all_units[this._units].join('|').split('|'));
 
           var all=[{
                     val:this.scalar,
                     units:units,
-                    str: this.scalar+' ('+units.join('|')+')'
+                    str: this.scalar.format() +' ('+units.join('|')+')'
                   }];
         }
 
@@ -888,12 +884,12 @@ var _=require('lodash');
             var val=this._conversionCache[key]
 
             if(inAllUnits){
-              units=_.uniq(all_units[key].join('|').toLowerCase().split('|'));
+              units=_.uniq(all_units[key].join('|').split('|'));
 
               val={
                 val:val.scalar,
                 units:units,
-                str: val.scalar+' ('+units.join('|')+')'
+                str: val.scalar.format() +' ('+units.join('|')+')'
               }
             }
 
