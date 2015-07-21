@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/mugendi/quantities",
   "dependencies": {
-    "lodash": "^3.10.0"
+    "lodash": "^3.10.0",
+    "sugar": "^1.4.1"
   }
 }
