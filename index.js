@@ -1642,6 +1642,7 @@ require('sugar');
    * Custom error type definition
    * @constructor
    */
+   
   function QtyError() {
     var err;
     if(!this) { // Allows to instantiate QtyError without new()

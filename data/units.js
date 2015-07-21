@@ -253,6 +253,7 @@ var UNITS = {
     "<ppt>" :  [["ppt"],1e-9, "prefix_only", ["<1>"]],
     "<gross>" :  [["gr","gross"],144.0, "prefix_only", ["<dozen>","<dozen>"]],
     "<decibel>"  : [["dB","decibel","decibels"], 1.0, "logarithmic", ["<decibel>"]]
+    
   }
 
 
