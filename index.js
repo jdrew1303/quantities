@@ -280,7 +280,6 @@ require('sugar');
       return this.baseScalar;
     }
 
-    // console.log(this.toBase())
     if(this.isBase()) {
       this.baseScalar = this.scalar;
       this.signature = unitSignature.call(this);
@@ -893,7 +892,6 @@ require('sugar');
               }
             }
 
-            // console.log(this._conversionCache[key],val)
             all.push(val)
 
         }
@@ -1642,7 +1640,7 @@ require('sugar');
    * Custom error type definition
    * @constructor
    */
-   
+
   function QtyError() {
     var err;
     if(!this) { // Allows to instantiate QtyError without new()
